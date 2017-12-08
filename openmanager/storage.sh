@@ -21,7 +21,7 @@ if [[ "$1" = "pdisk-status" ]];then
 fi
 
 if [[ "$1" = "vdisk" ]];then
-  /opt/dell/srvadmin/bin/omreport storage $1 | grep Status | cut -d ":" -f 2 | grep -c Ok
+  /opt/dell/srvadmin/bin/omreport storage $1 | grep -E ^Status | cut -d ":" -f 2 | grep -cv Ok
   exit
 fi
 
